@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chby.mapper.PaperMapper">
+
+    <resultMap type="com.chby.pojo.Paper" id="paperResultMap" >
+        <id     property="paperId"     column="p_id"/>
+        <result property="paperName"   column="p_name"/>
+        <result property="paperDetail" column="p_detail"/>
+        <result property="teacherId" column="t_no"/>
+    </resultMap>
+
+    <insert id="addPaper" parameterType="com.chby.pojo.Paper">
+        INSERT INTO
+          paper(p_name,p_detail,t_no) VALUES (#{paperName},#{paperDetail},#{teacherId})
+    </insert>
+
+
+    <delete id="deletePaperById" parameterType="long">
+        DELETE FROM paper WHERE p_id=#{paperID}
+    </delete>
+
+    <update id="updatePaper" parameterType="com.chby.pojo.Paper">
+        UPDATE paper
+        SET p_name = #{paperName},p_detail = #{paperDetail}, t_no = #{teacherId}
+        WHERE  p_id = #{paperId}
+    </update>
+
+    <select id="queryById" resultType="com.chby.pojo.Paper" parameterType="long">
+        SELECT*
+        FROM paper
+        WHERE p_id=#{paperId}
+    </select>
+
+    <select id="queryAllPaper" resultMap="paperResultMap">
+        SELECT p_id, p_name, p_detail,t_no
+        FROM paper
+    </select>
+</mapper>

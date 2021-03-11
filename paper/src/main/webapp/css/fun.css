@@ -1,0 +1,22 @@
+
+#logout:hover{
+    box-shadow: 10px 5px 5px #888888;
+}
+
+#logout{
+    position: absolute;
+    right: 5px;
+    top: 0px;
+    border-radius: 20px;
+}
+.right{
+    width:1200px;
+    height:200px;
+    padding: 20px;
+    MARGIN-RIGHT: auto;
+    MARGIN-LEFT: 21%;
+}
+
+.databody{
+	margin: 50px;
+}
